@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #map{
+            width: 250px;
+            height: 250px;
+            background: #0da357;
+            position: absolute;
+        }
+
+        #game{
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            top: 280px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="map">123456789</div>
+<div id="game">789456123</div>
+<script data-main="main" src="require.min.js"></script>
+<script>
+    /**
+     * 在这里导入需要使用的模块，以供下面调用的时候来使用
+     */
+    require([
+        'js/domReadyModule',
+        'js/xframe',
+        'js/stringModule',
+        'js/arrModule',
+        'js/funcModule',
+        'js/basisModule',
+        'js/eventModule',
+        'js/cssModule',
+        'js/selectModule',
+        'js/attrModule',
+        'js/contentModule',
+        'js/domModule',
+        'js/animateModule',
+        'js/cacheModule'
+    ], function (domReadyModule,
+                 xframe,
+                 stringModule,
+                 arrModule,
+                 funcModule,
+                 basisModule,
+                 eventModule,
+                 cssModule,
+                 selectModule,
+                 attrModule,
+                 contentModule,
+                 domModule,
+                 animateModule,
+                 cacheModule
+    ) {
+        console.log(xframe);
+        console.log('1234560@{name}'.formateString({name: 'xiuxiu'}), 'redcolor'.camelCase());
+        var arr = new Array(1, 2, 5);
+        console.log(arr.random(3));
+        console.log(funcModule);
+        console.log($.isArray(new Array()));
+        console.log(domReadyModule);
+        // 直接获取一个类似于JQuery的对象
+        console.log($('#map'));
+        $('#map').on('click', function () {
+            this.style.background = 'red';
+            console.log($.getEvent());
+        });
+        //console.log($('#map').getEvent());
+        domReadyModule.onReady(function (mes) {
+            console.log('load ok', mes);  // ok
+        });
+
+        console.log(eventModule);
+        console.log(cssModule);
+        $(function (mes) {
+            console.log(mes); //ok
+        })
+
+
+        // 事件框架测试
+        var fun = function () {
+            console.log('DOM load 完毕！');
+        }
+        $(fun);
+
+        console.log(selectModule);
+
+        // 选择框架测试
+        var res = $.$id('map');
+        console.log(res);
+
+        // CSS样式框架测试
+        console.log($('#map').css('width'));
+        console.log($('#map').css('background', 'pink'));
+
+        // 属性框架测试[20180721测试-----------------------------]
+        console.log(attrModule);
+        res = $('#map');
+
+
+        console.log($('#map').addClass('name'));
+        $('#map').addClass('age');
+        $('#map').attr('name', 18);
+
+        // 内容框架测试
+        console.log($('#map').html('<a href="main.js">7892121212</a>>'));
+        console.log(contentModule);
+
+
+        // DOM框架测试
+        console.log(domModule);
+        var dom = $.create('div', {name: "xiuxiu"}, '<a>456789</a>');
+        dom.appendTo(('#map'));
+        console.log(dom);
+        var dom1 = $.create('span', {age: "22"}, '<a href="require.min.js">456789</a>');
+        dom.append(dom1);
+
+        // 动画框架测试
+        console.log(animateModule.Animate);
+        $('#map').on('click', function () {
+            // $$.animate('#sun', {left: width}, 7000);
+            $.animate('#map', {left: 550, top: 550}, 7000)
+        });
+
+        //$('#game').css('left', '800px');
+        document.getElementById('game').style.left = '800px';
+
+
+        // backgroundColor
+        console.log('background-color'.camelize());
+
+        // 缓存框架的测试
+        // 本地临时存储的实现测试
+        // set
+        // 使用方式，需要先指定需要使用的功能模块名称，然后再指定相应的函数功能
+        // 1. 添加数据
+        cacheModule.cache.add('name', '52tech');
+        // 2.获取数据
+        var res = cacheModule.cache.get('name');
+        // 3. 修改数据
+        res = cacheModule.cache.update('name', 'xiuxiu');
+        res = cacheModule.cache.get('name');
+        // 3. 删除数据
+        res = cacheModule.cache.delete('name');
+        // 4.  判断本地是否存在某一个数据
+        res = cacheModule.cache.isExist('name');
+
+
+
+
+
+
+        // cookie框架测试
+        // 1. 添加Cookie信息 name, value, days, path
+        // 主要问题： 如果直接添加内容的话，出现的问题是，存储的是这个内容，但是存储进cookie本地存储的就不是了
+        // 注意当前的这种方式是不支持在字符串中有分号的情形
+        cacheModule.cookie.setCookie('script5', '<script>alert(2)<\/script>', 10, '/');
+        // 2. 获取本地存储的cookie信息
+        res = cacheModule.cookie.getCookie('script3');
+        document.body.innerHTML = '<script>alert("ok")<\/script>';
+        // 3. 修改本地的Cookie信息
+        res = cacheModule.cookie.deleteCookie('script5', '/');
+
+
+        // 清空所有的COOkie信息
+        // "name&amp=xiuxiu&amp; name=xiuxiu; script=<script>alert(2); script2=<script>alert(2); script3=<script>alert(2); script3&amp=&ltscript&gtalert(2); script4&amp=&ltscript&gtalert(2); a&amp=&lta&gtalert(2)&lt/a&gt&amp"
+        cacheModule.cookie.clearAllCookies();
+
+        // 设置Cookie信息
+        cacheModule.cookie.setCookie('json', '<a href="www.52tech.tech" onclick="javascript:void 0"></a>>', 10, '/');
+        res = cacheModule.cookie.getCookie('json');
+        console.log(res);
+
+
+        // localstorage本地存储功能的测试
+        // 1. 设置storage信息
+        $.storage.set('name', 'xiuxiu');
+        // 2. 获取信息
+        res = $.storage.get('name');
+        // 3. 修改信息
+        $.storage.remove('name');
+        // 4. 清空所有的本地存储信息
+        $.storage.clear();
+    });
+</script>
+</body>
+</html>
