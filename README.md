@@ -1,4 +1,4 @@
-# JavaScript-
+JavaScript-Xframe
 /* * @Author: xiugang * @Time: 20180722 * @Desc: 实现一个类似于JQuery功能的框架 * 
 V 1.0: 实现了基础框架、事件框架、CSS框架、属性框架、内容框架、动画框架的搭建 * 
 V 2.0：实现了框架的进一步优化，具有良好的扩展性， 可以支持链式访问 * 
@@ -15,4 +15,5 @@ V 12.0 在每一个立即函数+闭包的前面添加；实现框架的兼容性
 
 以上是前期代码封装过程中的每一个过程版本信息，最终实现了这个最终封装好的框架[Release V1.0]，目前主要有两个版本。
 版本1：立即函数+闭包实现的JQuery版本
-版本2：使用require.js进行封装之后的版本，基本上对上面的封装的版本进行了二次改造，每一个框架单独封装成为一个功能模块
+
+[![GitHub tag](https://img.shields.io/github/tag/expressjs/express.svg)](https://github.com/xiugangzhang/)
