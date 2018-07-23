@@ -49,7 +49,10 @@ V 12.0 in every immediate function + closure Added before; implements framework 
 
 The above is the version of each process in the pre-code encapsulation process, and finally the final packaged framework<br>  
 ---
-[Release V1.0] is implemented. There are currently two versions. Version 1: JQuery version of immediate function + closure implementation<br>  
+[Release V1.0] is implemented. There are currently two versions. 
+-
+Version 1: JQuery version of immediate function + closure implementation<br>  
 ---
-
+Version 2: Modular JQuery version implemented with require.js
+-
 [![GitHub tag](https://img.shields.io/github/tag/expressjs/express.svg)](https://github.com/xiugangzhang/)
