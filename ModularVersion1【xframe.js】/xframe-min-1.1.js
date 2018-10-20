@@ -3352,7 +3352,7 @@
             function getStorage() {
                 // 如果已经获取到了Storage对象的话
                 if (storage) {
-                    return storage;
+                    return storage; 
                 }
                 storage = doc.body.appendChild(doc.createElement('div'));
                 storage.style.display = 'none';
