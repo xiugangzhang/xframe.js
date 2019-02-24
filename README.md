@@ -24,8 +24,7 @@ V 12.0 在每一个立即函数+闭包的前面添加；实现框架的兼容性
 版本2：使用require.js实现的模块化的JQuery版本<br>  
 -
 
-
-
+ 
 
 JavaScript-Xframe.js
 ====  
